@@ -1,0 +1,15 @@
+C:\Users\Ndiene Mukondeleli\Desktop\CybersecurityChatbot\CybersecurityChatbot\CybersecurityChatbot\bin\Debug\CybersecurityChatbot.exe.config
+C:\Users\Ndiene Mukondeleli\Desktop\CybersecurityChatbot\CybersecurityChatbot\CybersecurityChatbot\bin\Debug\CybersecurityChatbot.exe
+C:\Users\Ndiene Mukondeleli\Desktop\CybersecurityChatbot\CybersecurityChatbot\CybersecurityChatbot\bin\Debug\CybersecurityChatbot.pdb
+C:\Users\Ndiene Mukondeleli\Desktop\CybersecurityChatbot\CybersecurityChatbot\CybersecurityChatbot\obj\Debug\CybersecurityChatbot.csproj.AssemblyReference.cache
+C:\Users\Ndiene Mukondeleli\Desktop\CybersecurityChatbot\CybersecurityChatbot\CybersecurityChatbot\obj\Debug\CybersecurityChatbot.csproj.CoreCompileInputs.cache
+C:\Users\Ndiene Mukondeleli\Desktop\CybersecurityChatbot\CybersecurityChatbot\CybersecurityChatbot\obj\Debug\CybersecurityChatbot.exe
+C:\Users\Ndiene Mukondeleli\Desktop\CybersecurityChatbot\CybersecurityChatbot\CybersecurityChatbot\obj\Debug\CybersecurityChatbot.pdb
+C:\Users\Ndiene Mukondeleli\Downloads\CybersecurityChatbot_fixed\CybersecurityChatbot\CybersecurityChatbot\bin\Debug\CybersecurityChatbot.exe.config
+C:\Users\Ndiene Mukondeleli\Downloads\CybersecurityChatbot_fixed\CybersecurityChatbot\CybersecurityChatbot\bin\Debug\CybersecurityChatbot.exe
+C:\Users\Ndiene Mukondeleli\Downloads\CybersecurityChatbot_fixed\CybersecurityChatbot\CybersecurityChatbot\bin\Debug\CybersecurityChatbot.pdb
+C:\Users\Ndiene Mukondeleli\Downloads\CybersecurityChatbot_fixed\CybersecurityChatbot\CybersecurityChatbot\obj\Debug\CybersecurityChatbot.csproj.AssemblyReference.cache
+C:\Users\Ndiene Mukondeleli\Downloads\CybersecurityChatbot_fixed\CybersecurityChatbot\CybersecurityChatbot\obj\Debug\CybersecurityChatbot.exe.config
+C:\Users\Ndiene Mukondeleli\Downloads\CybersecurityChatbot_fixed\CybersecurityChatbot\CybersecurityChatbot\obj\Debug\CybersecurityChatbot.csproj.CoreCompileInputs.cache
+C:\Users\Ndiene Mukondeleli\Downloads\CybersecurityChatbot_fixed\CybersecurityChatbot\CybersecurityChatbot\obj\Debug\CybersecurityChatbot.exe
+C:\Users\Ndiene Mukondeleli\Downloads\CybersecurityChatbot_fixed\CybersecurityChatbot\CybersecurityChatbot\obj\Debug\CybersecurityChatbot.pdb
