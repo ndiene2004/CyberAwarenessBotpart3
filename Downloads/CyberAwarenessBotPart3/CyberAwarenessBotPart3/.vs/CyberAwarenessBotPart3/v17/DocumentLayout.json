@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Ndiene Mukondeleli\\Downloads\\CyberAwarenessBotPart3\\CyberAwarenessBotPart3\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}|Solution Items{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}|C:\\Users\\Ndiene Mukondeleli\\Downloads\\CyberAwarenessBotPart3\\CyberAwarenessBotPart3\\README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}|Solution Items{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}|solutionrelative:README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|CyberAwarenessBot\\CyberAwarenessBot.csproj|c:\\users\\ndiene mukondeleli\\downloads\\cyberawarenessbotpart3\\cyberawarenessbotpart3\\cyberawarenessbot\\cyberawarenessbot.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|CyberAwarenessBot\\CyberAwarenessBot.csproj|solutionrelative:cyberawarenessbot\\cyberawarenessbot.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "README.md",
+              "DocumentMoniker": "C:\\Users\\Ndiene Mukondeleli\\Downloads\\CyberAwarenessBotPart3\\CyberAwarenessBotPart3\\README.md",
+              "RelativeDocumentMoniker": "README.md",
+              "ToolTip": "C:\\Users\\Ndiene Mukondeleli\\Downloads\\CyberAwarenessBotPart3\\CyberAwarenessBotPart3\\README.md",
+              "RelativeToolTip": "README.md",
+              "ViewState": "AgIAABQAAAAAAAAAAAAcwCcAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2026-06-24T20:51:42.395Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CyberAwarenessBot.csproj",
+              "DocumentMoniker": "C:\\Users\\Ndiene Mukondeleli\\Downloads\\CyberAwarenessBotPart3\\CyberAwarenessBotPart3\\CyberAwarenessBot\\CyberAwarenessBot.csproj",
+              "RelativeDocumentMoniker": "CyberAwarenessBot\\CyberAwarenessBot.csproj",
+              "ToolTip": "C:\\Users\\Ndiene Mukondeleli\\Downloads\\CyberAwarenessBotPart3\\CyberAwarenessBotPart3\\CyberAwarenessBot\\CyberAwarenessBot.csproj",
+              "RelativeToolTip": "CyberAwarenessBot\\CyberAwarenessBot.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-06-24T20:14:47.046Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,347 @@
+<Window x:Class="CyberAwarenessBot.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="🛡️ Cyber Awareness Bot - Part 3"
+        Height="750" Width="1000"
+        MinHeight="600" MinWidth="800"
+        WindowStartupLocation="CenterScreen"
+        Background="#1A1A2E">
+
+    <Window.Resources>
+        <!-- ===================================================
+             STYLES: Give everything a consistent dark-cyber look
+             =================================================== -->
+
+        <!-- Base button style used across the whole app -->
+        <Style x:Key="CyberButton" TargetType="Button">
+            <Setter Property="Background" Value="#16213E"/>
+            <Setter Property="Foreground" Value="#00D4FF"/>
+            <Setter Property="BorderBrush" Value="#00D4FF"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="12,6"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="FontFamily" Value="Consolas"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="4">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"
+                                              Margin="{TemplateBinding Padding}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#00D4FF"/>
+                                <Setter Property="Foreground" Value="#1A1A2E"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Accent button (used for Send, Quiz actions, etc.) -->
+        <Style x:Key="AccentButton" TargetType="Button" BasedOn="{StaticResource CyberButton}">
+            <Setter Property="Background" Value="#0F3460"/>
+            <Setter Property="Foreground" Value="#E94560"/>
+            <Setter Property="BorderBrush" Value="#E94560"/>
+        </Style>
+
+        <!-- Scrollbar style so it matches the dark theme -->
+        <Style TargetType="ScrollBar">
+            <Setter Property="Background" Value="#16213E"/>
+            <Setter Property="Foreground" Value="#00D4FF"/>
+        </Style>
+    </Window.Resources>
+
+    <!-- ======================================================
+         MAIN LAYOUT: Tab control with four feature tabs
+         ====================================================== -->
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>  <!-- Header banner -->
+            <RowDefinition Height="*"/>     <!-- Main content tabs -->
+            <RowDefinition Height="Auto"/>  <!-- Status bar -->
+        </Grid.RowDefinitions>
+
+        <!-- ── HEADER ── -->
+        <Border Grid.Row="0" Background="#0F3460" CornerRadius="6" Margin="0,0,0,8" Padding="12,8">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="🛡️ CYBER AWARENESS BOT" FontSize="20" FontWeight="Bold"
+                           FontFamily="Consolas" Foreground="#00D4FF" VerticalAlignment="Center"/>
+                <TextBlock Text="  |  Part 3 – Advanced Features" FontSize="13"
+                           Foreground="#E94560" VerticalAlignment="Center" Margin="8,0,0,0"/>
+            </StackPanel>
+        </Border>
+
+        <!-- ── TAB CONTROL ── -->
+        <TabControl Grid.Row="1" Background="#16213E" BorderBrush="#00D4FF"
+                    Foreground="#00D4FF" FontFamily="Consolas">
+
+            <!-- ================================================
+                 TAB 1 – CHATBOT (main chat interface)
+                 ================================================ -->
+            <TabItem Header="💬 Chat" Background="#16213E" Foreground="#00D4FF">
+                <Grid Margin="8">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>   <!-- Chat history -->
+                        <RowDefinition Height="Auto"/><!-- Input row -->
+                        <RowDefinition Height="Auto"/><!-- Quick-action buttons -->
+                    </Grid.RowDefinitions>
+
+                    <!-- Chat display area -->
+                    <Border Grid.Row="0" Background="#0D0D1A" BorderBrush="#00D4FF"
+                            BorderThickness="1" CornerRadius="4" Margin="0,0,0,6">
+                        <ScrollViewer x:Name="ChatScrollViewer" VerticalScrollBarVisibility="Auto">
+                            <TextBox x:Name="ChatDisplay"
+                                     Background="Transparent"
+                                     Foreground="#C8D6E5"
+                                     FontFamily="Consolas"
+                                     FontSize="13"
+                                     IsReadOnly="True"
+                                     TextWrapping="Wrap"
+                                     BorderThickness="0"
+                                     Padding="10"
+                                     VerticalScrollBarVisibility="Disabled"/>
+                        </ScrollViewer>
+                    </Border>
+
+                    <!-- User input row -->
+                    <Grid Grid.Row="1" Margin="0,0,0,6">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox x:Name="UserInputBox"
+                                 Grid.Column="0"
+                                 Background="#0F3460"
+                                 Foreground="#E8E8E8"
+                                 FontFamily="Consolas"
+                                 FontSize="13"
+                                 BorderBrush="#00D4FF"
+                                 BorderThickness="1"
+                                 Padding="8,6"
+                                 KeyDown="UserInputBox_KeyDown"
+                                 ToolTip="Type a message and press Enter or click Send"/>
+                        <Button Grid.Column="1" Content="➤ Send"
+                                Style="{StaticResource AccentButton}"
+                                Margin="6,0,0,0" Width="80"
+                                Click="SendButton_Click"/>
+                    </Grid>
+
+                    <!-- Quick-action shortcut buttons -->
+                    <WrapPanel Grid.Row="2" Orientation="Horizontal">
+                        <Button Content="📋 Add Task" Style="{StaticResource CyberButton}"
+                                Margin="0,0,4,4" Click="QuickTask_Click"/>
+                        <Button Content="🎮 Start Quiz" Style="{StaticResource CyberButton}"
+                                Margin="0,0,4,4" Click="QuickQuiz_Click"/>
+                        <Button Content="📜 Show Log" Style="{StaticResource CyberButton}"
+                                Margin="0,0,4,4" Click="QuickLog_Click"/>
+                        <Button Content="❓ Help" Style="{StaticResource CyberButton}"
+                                Margin="0,0,4,4" Click="QuickHelp_Click"/>
+                    </WrapPanel>
+                </Grid>
+            </TabItem>
+
+            <!-- ================================================
+                 TAB 2 – TASK MANAGER
+                 ================================================ -->
+            <TabItem Header="📋 Tasks" Background="#16213E" Foreground="#00D4FF">
+                <Grid Margin="8">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>  <!-- Add-task form -->
+                        <RowDefinition Height="*"/>     <!-- Task list -->
+                        <RowDefinition Height="Auto"/>  <!-- Task action buttons -->
+                    </Grid.RowDefinitions>
+
+                    <!-- ── ADD TASK FORM ── -->
+                    <GroupBox Grid.Row="0" Header="➕ Add New Task"
+                              Foreground="#00D4FF" BorderBrush="#00D4FF" Margin="0,0,0,8">
+                        <Grid Margin="8">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <!-- Title label + input -->
+                            <TextBlock Grid.Row="0" Grid.Column="0" Text="Title:"
+                                       Foreground="#00D4FF" VerticalAlignment="Center" Margin="0,4,8,4"/>
+                            <TextBox x:Name="TaskTitleBox" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3"
+                                     Background="#0F3460" Foreground="#E8E8E8"
+                                     BorderBrush="#00D4FF" BorderThickness="1"
+                                     FontFamily="Consolas" Padding="6,4" Margin="0,4"/>
+
+                            <!-- Description label + input -->
+                            <TextBlock Grid.Row="1" Grid.Column="0" Text="Description:"
+                                       Foreground="#00D4FF" VerticalAlignment="Center" Margin="0,4,8,4"/>
+                            <TextBox x:Name="TaskDescBox" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"
+                                     Background="#0F3460" Foreground="#E8E8E8"
+                                     BorderBrush="#00D4FF" BorderThickness="1"
+                                     FontFamily="Consolas" Padding="6,4" Margin="0,4"/>
+
+                            <!-- Reminder date + Add button -->
+                            <TextBlock Grid.Row="2" Grid.Column="0" Text="Reminder date:"
+                                       Foreground="#00D4FF" VerticalAlignment="Center" Margin="0,4,8,4"/>
+                            <DatePicker x:Name="TaskReminderDate" Grid.Row="2" Grid.Column="1"
+                                        Background="#0F3460" BorderBrush="#00D4FF"
+                                        Foreground="#E8E8E8" Margin="0,4,8,4"/>
+                            <Button Grid.Row="2" Grid.Column="3" Content="➕ Add Task"
+                                    Style="{StaticResource CyberButton}"
+                                    Click="AddTask_Click" Margin="0,4"/>
+                        </Grid>
+                    </GroupBox>
+
+                    <!-- ── TASK LIST ── -->
+                    <ListView x:Name="TaskListView" Grid.Row="1"
+                              Background="#0D0D1A" Foreground="#C8D6E5"
+                              BorderBrush="#00D4FF" BorderThickness="1"
+                              FontFamily="Consolas" FontSize="12"
+                              SelectionMode="Single">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="✓" Width="30" DisplayMemberBinding="{Binding DoneIcon}"/>
+                                <GridViewColumn Header="Title" Width="180" DisplayMemberBinding="{Binding Title}"/>
+                                <GridViewColumn Header="Description" Width="260" DisplayMemberBinding="{Binding Description}"/>
+                                <GridViewColumn Header="Reminder" Width="120" DisplayMemberBinding="{Binding ReminderDisplay}"/>
+                                <GridViewColumn Header="Added" Width="130" DisplayMemberBinding="{Binding AddedDisplay}"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+
+                    <!-- ── TASK ACTION BUTTONS ── -->
+                    <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0,6,0,0">
+                        <Button Content="✅ Mark Done" Style="{StaticResource CyberButton}"
+                                Margin="0,0,6,0" Click="MarkDone_Click"/>
+                        <Button Content="🗑️ Delete" Style="{StaticResource AccentButton}"
+                                Margin="0,0,6,0" Click="DeleteTask_Click"/>
+                        <Button Content="🔄 Refresh" Style="{StaticResource CyberButton}"
+                                Click="RefreshTasks_Click"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+
+            <!-- ================================================
+                 TAB 3 – CYBERSECURITY QUIZ
+                 ================================================ -->
+            <TabItem Header="🎮 Quiz" Background="#16213E" Foreground="#00D4FF">
+                <Grid Margin="8">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>   <!-- Score header -->
+                        <RowDefinition Height="Auto"/>   <!-- Question text -->
+                        <RowDefinition Height="*"/>      <!-- Answer options -->
+                        <RowDefinition Height="Auto"/>   <!-- Feedback area -->
+                        <RowDefinition Height="Auto"/>   <!-- Quiz control buttons -->
+                    </Grid.RowDefinitions>
+
+                    <!-- Score strip -->
+                    <Border Grid.Row="0" Background="#0F3460" CornerRadius="4" Padding="10,6" Margin="0,0,0,8">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Score: " Foreground="#00D4FF" FontFamily="Consolas" FontSize="14"/>
+                            <TextBlock x:Name="ScoreLabel" Text="0" Foreground="#E94560"
+                                       FontFamily="Consolas" FontSize="14" FontWeight="Bold"/>
+                            <TextBlock Text=" / " Foreground="#00D4FF" FontFamily="Consolas" FontSize="14"/>
+                            <TextBlock x:Name="TotalLabel" Text="0" Foreground="#00D4FF"
+                                       FontFamily="Consolas" FontSize="14"/>
+                            <TextBlock Text="    Question: " Foreground="#00D4FF" FontFamily="Consolas" FontSize="14"/>
+                            <TextBlock x:Name="QuestionNumLabel" Text="0" Foreground="#E94560"
+                                       FontFamily="Consolas" FontSize="14" FontWeight="Bold"/>
+                            <TextBlock Text=" / 12" Foreground="#00D4FF" FontFamily="Consolas" FontSize="14"/>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Question text -->
+                    <Border Grid.Row="1" Background="#0D0D1A" BorderBrush="#00D4FF"
+                            BorderThickness="1" CornerRadius="4" Padding="12" Margin="0,0,0,8">
+                        <TextBlock x:Name="QuestionLabel"
+                                   Text="Press 'Start Quiz' to begin!"
+                                   Foreground="#C8D6E5" FontFamily="Consolas" FontSize="14"
+                                   TextWrapping="Wrap"/>
+                    </Border>
+
+                    <!-- Answer radio buttons (4 choices) -->
+                    <StackPanel Grid.Row="2" x:Name="AnswerPanel" Margin="0,0,0,8">
+                        <RadioButton x:Name="AnswerA" GroupName="Answers" Foreground="#C8D6E5"
+                                     FontFamily="Consolas" FontSize="13" Margin="0,4"
+                                     Click="Answer_Click" Tag="A"/>
+                        <RadioButton x:Name="AnswerB" GroupName="Answers" Foreground="#C8D6E5"
+                                     FontFamily="Consolas" FontSize="13" Margin="0,4"
+                                     Click="Answer_Click" Tag="B"/>
+                        <RadioButton x:Name="AnswerC" GroupName="Answers" Foreground="#C8D6E5"
+                                     FontFamily="Consolas" FontSize="13" Margin="0,4"
+                                     Click="Answer_Click" Tag="C"/>
+                        <RadioButton x:Name="AnswerD" GroupName="Answers" Foreground="#C8D6E5"
+                                     FontFamily="Consolas" FontSize="13" Margin="0,4"
+                                     Click="Answer_Click" Tag="D"/>
+                    </StackPanel>
+
+                    <!-- Feedback text (shows correct/wrong + explanation) -->
+                    <Border Grid.Row="3" Background="#0F3460" CornerRadius="4"
+                            Padding="10" Margin="0,0,0,8" x:Name="FeedbackBorder" Visibility="Collapsed">
+                        <TextBlock x:Name="FeedbackLabel" Foreground="#00D4FF"
+                                   FontFamily="Consolas" FontSize="13" TextWrapping="Wrap"/>
+                    </Border>
+
+                    <!-- Quiz control buttons -->
+                    <StackPanel Grid.Row="4" Orientation="Horizontal">
+                        <Button Content="▶ Start Quiz" Style="{StaticResource CyberButton}"
+                                Margin="0,0,6,0" Click="StartQuiz_Click"/>
+                        <Button Content="⏭ Next Question" Style="{StaticResource AccentButton}"
+                                Margin="0,0,6,0" Click="NextQuestion_Click" x:Name="NextBtn"
+                                IsEnabled="False"/>
+                        <Button Content="🔄 Restart" Style="{StaticResource CyberButton}"
+                                Click="RestartQuiz_Click"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+
+            <!-- ================================================
+                 TAB 4 – ACTIVITY LOG
+                 ================================================ -->
+            <TabItem Header="📜 Activity Log" Background="#16213E" Foreground="#00D4FF">
+                <Grid Margin="8">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>     <!-- Log list -->
+                        <RowDefinition Height="Auto"/> <!-- Buttons -->
+                    </Grid.RowDefinitions>
+
+                    <ListView x:Name="LogListView" Grid.Row="0"
+                              Background="#0D0D1A" Foreground="#C8D6E5"
+                              BorderBrush="#00D4FF" BorderThickness="1"
+                              FontFamily="Consolas" FontSize="12">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Timestamp" Width="160" DisplayMemberBinding="{Binding Timestamp}"/>
+                                <GridViewColumn Header="Action" Width="600" DisplayMemberBinding="{Binding Description}"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+
+                    <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,6,0,0">
+                        <Button Content="🗑️ Clear Log" Style="{StaticResource AccentButton}"
+                                Margin="0,0,6,0" Click="ClearLog_Click"/>
+                        <Button Content="🔄 Refresh" Style="{StaticResource CyberButton}"
+                                Click="RefreshLog_Click"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+        <!-- ── STATUS BAR ── -->
+        <Border Grid.Row="2" Background="#0F3460" CornerRadius="4"
+                Margin="0,6,0,0" Padding="8,4">
+            <TextBlock x:Name="StatusBar" Text="Ready. Type a message or use the tabs above."
+                       Foreground="#00D4FF" FontFamily="Consolas" FontSize="11"/>
+        </Border>
+    </Grid>
+</Window>

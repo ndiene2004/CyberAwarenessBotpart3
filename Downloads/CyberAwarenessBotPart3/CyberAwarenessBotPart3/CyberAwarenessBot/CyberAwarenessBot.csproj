@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!-- Target .NET 8 – compatible with Visual Studio 2022 17.8+ -->
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>CyberAwarenessBot</AssemblyName>
+    <RootNamespace>CyberAwarenessBot</RootNamespace>
+    <!-- Application icon (optional – remove if you don't have one) -->
+    <!-- <ApplicationIcon>shield.ico</ApplicationIcon> -->
+  </PropertyGroup>
+
+</Project>
